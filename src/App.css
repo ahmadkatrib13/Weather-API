@@ -45,6 +45,25 @@
 
 
 
+
+.allDay__wrapper{
+width: 95%;
+margin: 30px auto 0 auto;
+}
+
+.days__styler{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap:15px;
+  color:#0b1b48;
+}
+
+
+
+
+
 /* on phone */
 @media (max-width: 600px) {
   .app__header{

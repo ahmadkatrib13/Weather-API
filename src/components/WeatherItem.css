@@ -1,0 +1,15 @@
+.grid__day{
+    width: 120px;
+    justify-content: center;
+    text-align: center;
+    display: grid;
+    grid-row:1fr 1fr 1fr ;
+    flex-direction: column;
+    gap:15px
+    
+  }
+
+    
+  .day__image{
+    width:120px;
+  }

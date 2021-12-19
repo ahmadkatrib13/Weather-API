@@ -57,3 +57,14 @@
     grid-column: 2 / 3;
   
   }
+  
+  .temprature__title,.pressure__title,.humidity__title{
+    font-weight:  bolder;
+  }
+  .temprature__value,.pressure__value,.humidity__value{
+    font-weight:  100;
+  }
+  
+  .current__pressure,.current__humidity{
+    font-size: 0,8rem;
+  }
