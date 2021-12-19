@@ -36,146 +36,11 @@
 
 
 /*  Search bar */
-.search__bar{
-  display: flex;
-  flex-direction: row;
 
-  height: 45px;
-  flex-wrap: wrap;
-  gap:15px;
-}
-
-.search__input{
-  background-color: transparent;
-  border: none;
-  height: 44px;
-  width: 220px;
-  color: white;
-  outline: none;
-  font-size: 1.4rem;
-  box-sizing: content-box;
-}
-
-.search__input:focus{
-  border-bottom: 1px solid #5879c7;
-}
-
-
-.search__button{
-  background-color: #5879c7;
-  border: 1px solid #5879c7;
-  border: none;
-  height: 100%;
-  padding: 10px 15px;
-  font-size: 1.2rem;
-  font-weight: 300;
-}
 
 
 
 /* Current weather */
-.current__wrapper{
-  margin: auto;
-  width: 100%;
-  max-width: 220px;
-}
-
-.current__styler{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.current__image{
-width: 80%;
-margin:auto
-}
-.current__grid{
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows:auto auto auto;
-  color:#0b1b48;
-  gap: 15px;
-  justify-content: center;
-  
-}
-.current__description{
-  grid-column: 1 / 3;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 1.4rem;
-}
-
-
-.current__humidity,.current__pressure{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-
-}
-.current__temprature{
-  grid-column: 1 / 3;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  font-size: 1.3rem;  
-
-}
-.current__humidity{
-  grid-column: 1 / 2;
-
-}
-.current__pressure{
-  grid-column: 2 / 3;
-
-}
-
-
-.temprature__title,.pressure__title,.humidity__title{
-  font-weight:  bolder;
-}
-.temprature__value,.pressure__value,.humidity__value{
-  font-weight:  100;
-}
-
-.current__pressure,.current__humidity{
-  font-size: 0,8rem;
-}
-
-
-.allDay__wrapper{
-width: 95%;
-margin: 30px auto 0 auto;
-}
-
-.days__styler{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap:15px
-}
-.grid__day{
-  width: 120px;
-  justify-content: center;
-  text-align: center;
-  display: grid;
-  grid-row:1fr 1fr 1fr ;
-  flex-direction: column;
-  gap:15px
-  
-}
-
-.day__image{
-  width:120px;
-}
-
-
-
 
 
 
@@ -185,10 +50,6 @@ margin: 30px auto 0 auto;
   .app__header{
     justify-content: center;
   }
-  .search__bar{
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
-  }
+
     
   }

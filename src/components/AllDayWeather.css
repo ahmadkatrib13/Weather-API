@@ -1,0 +1,44 @@
+
+
+  .temprature__title,.pressure__title,.humidity__title{
+    font-weight:  bolder;
+  }
+  .temprature__value,.pressure__value,.humidity__value{
+    font-weight:  100;
+  }
+  
+  .current__pressure,.current__humidity{
+    font-size: 0,8rem;
+  }
+  
+  
+  .allDay__wrapper{
+  width: 95%;
+  margin: 30px auto 0 auto;
+  }
+  
+  .days__styler{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap:15px
+  }
+  .grid__day{
+    width: 120px;
+    justify-content: center;
+    text-align: center;
+    display: grid;
+    grid-row:1fr 1fr 1fr ;
+    flex-direction: column;
+    gap:15px
+    
+  }
+  
+  .day__image{
+    width:120px;
+  }
+  
+  
+  
+  
