@@ -7,8 +7,7 @@ import "./App.css";
 
 import CurrentWeather from "./components/CurrentWeather";
 import WeatherItem from "./components/WeatherItem";
- import Search from "./components/Search";
-import fakeWeatherData from "./fakeWeatherData.json";
+import Search from "./components/Search";
 
 
 class App extends Component {
@@ -16,16 +15,31 @@ class App extends Component {
     super(props);
     this.state = {
       city: "",
-      weatherList:fakeWeatherData.list
+      APIKey:"b2138303c7f874edc9e9a9307395c595",
+      status:"",
+      weatherList:""
     };
   }
 
   handleInputChange = value => {
     this.setState({ city: value });
+    this.fetchData(value);
   };
 
-  
+  fetchData = city=>{
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${this.state.APIKey}`)
+    .then(res => res.json())
+    .then(data =>  {
+      console.log(data);
+      this.setState({ 
+        status:data.cod,
+        weatherList : data.list
+      })
+    })
+    .catch(err=>console.log(err))}
 
+    
+  
   render() {
     return (
       <div className="app">
@@ -33,10 +47,11 @@ class App extends Component {
           <Search handleInput={this.handleInputChange} />
         </header>
         <main className="app__main">
-          <CurrentWeather currentElement={this.state.weatherList[0]} image={mostlyCloudy}/>
+         {this.state.status=="200"&& <CurrentWeather currentElement={this.state.weatherList[0]} image={mostlyCloudy}/>}
           <div className="allDay__wrapper">
           <div className="days__styler">
             {
+            this.state.status=="200" &&
               this.state.weatherList.map((item,index)=>{
                 if(index<8 && index>0) return <WeatherItem element={item}/>
               })
