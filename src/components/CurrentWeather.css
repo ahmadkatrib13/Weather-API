@@ -19,7 +19,7 @@
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows:auto auto auto;
+    grid-template-rows:auto auto auto auto;
     color:#0b1b48;
     gap: 15px;
     justify-content: center;
@@ -34,7 +34,7 @@
   }
   
   
-  .current__humidity,.current__pressure{
+  .current__humidity,.current__pressure,.current__sea,.current__wind{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -49,22 +49,22 @@
     font-size: 1.3rem;  
   
   }
-  .current__humidity{
+  .current__humidity,.current__wind{
     grid-column: 1 / 2;
   
   }
-  .current__pressure{
+  .current__pressure,.current__sea{
     grid-column: 2 / 3;
   
   }
   
-  .temprature__title,.pressure__title,.humidity__title{
+  .temprature__title,.pressure__title,.humidity__title,.wind__title,.sea__title{
     font-weight:  bolder;
   }
-  .temprature__value,.pressure__value,.humidity__value{
+  .temprature__value,.pressure__value,.humidity__value,.sea__value,.wind__value{
     font-weight:  100;
   }
   
-  .current__pressure,.current__humidity{
+  .current__pressure,.current__humidity,.current__sea,.current__wind{
     font-size: 0,8rem;
   }

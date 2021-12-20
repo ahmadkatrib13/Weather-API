@@ -8,6 +8,7 @@ import "./App.css";
 import CurrentWeather from "./components/CurrentWeather";
 import WeatherItem from "./components/WeatherItem";
 import Search from "./components/Search";
+import ErrorMsg from "./components/ErrorMsg";
 
 
 class App extends Component {
@@ -15,9 +16,9 @@ class App extends Component {
     super(props);
     this.state = {
       city: "",
-      APIKey:"b2138303c7f874edc9e9a9307395c595",
-      status:"",
-      weatherList:""
+      APIKey: "b2138303c7f874edc9e9a9307395c595",
+      status: "",
+      weatherList: ""
     };
   }
 
@@ -26,40 +27,54 @@ class App extends Component {
     this.fetchData(value);
   };
 
-  fetchData = city=>{
+  fetchData = city => {
     fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${this.state.APIKey}`)
-    .then(res => res.json())
-    .then(data =>  {
-      console.log(data);
-      this.setState({ 
-        status:data.cod,
-        weatherList : data.list
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          status: data.cod,
+          weatherList: data.list
+        })
       })
-    })
-    .catch(err=>console.log(err))}
+      .catch(err => {
+        this.setState({
+          status: "408"
+      });
+  })}
 
-    
-  
+
+
+
+
   render() {
+
     return (
       <div className="app">
         <header className="app__header">
           <Search handleInput={this.handleInputChange} />
         </header>
+        
         <main className="app__main">
-         {this.state.status=="200"&& <CurrentWeather currentElement={this.state.weatherList[0]} image={mostlyCloudy}/>}
-          <div className="allDay__wrapper">
-          <div className="days__styler">
-            {
-            this.state.status=="200" &&
-              this.state.weatherList.map((item,index)=>{
-                if(index<8 && index>0) return <WeatherItem element={item}/>
-              })
-            }
-          
-          </div>
+          {
+            this.state.status !=="200"?<ErrorMsg err={this.state.status}/>:
+            <>
+            <CurrentWeather currentElement={this.state.weatherList[0]} image={mostlyCloudy} />
+            <div className="allDay__wrapper">
+              <div className="days__styler">
+                {
+                  this.state.weatherList.map((item, index) => {
+                    if (index < 8 && index > 0) return <WeatherItem element={item} />
+                  })
+                }
+
+              </div>
             </div>
+          </>
+
+          }
         </main>
+
       </div>
     );
   }
