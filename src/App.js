@@ -28,7 +28,7 @@ class App extends Component {
   };
 
   fetchData = city => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${this.state.APIKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${this.state.APIKey}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
